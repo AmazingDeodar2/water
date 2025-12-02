@@ -9,6 +9,17 @@ input { margin-bottom:5px; }
 button { margin-top:10px; }
 #log { width:100%; height:150px; overflow-y:scroll; background:#f0f0f0; padding:10px; font-family:Consolas; margin-bottom:10px; }
 #preview { display:block; margin-top:20px; border:1px solid #ccc; max-width:100%; }
+#previewWrapper {
+    margin-top: 20px;
+    background: #000;          /* ✅ 预览黑底 */
+    padding: 20px;
+    display: inline-block;
+}
+
+#preview {
+    display: block;
+    max-width: 100%;
+}
 </style>
 </head>
 <body>
@@ -20,7 +31,10 @@ button { margin-top:10px; }
 <a id="downloadLink" style="display:none;" download="output.png">下载生成的图片</a>
 <canvas id="canvas" style="display:none;"></canvas>
 <div id="log"></div>
-<img id="preview" alt="生成图片预览" />
+<div id="previewWrapper">
+    <img id="preview" alt="生成图片预览" />
+</div>
+
 
 <script>
 // === 内嵌 Base64 图片 ===
@@ -121,4 +135,5 @@ function drawImages(width,height,ctx,imgs){
 </script>
 </body>
 </html>
+
 

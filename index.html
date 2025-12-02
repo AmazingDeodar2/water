@@ -91,7 +91,7 @@ function drawImages(width,height,ctx,imgs){
         "leftbottom.png":[0.05*width, 2*height/3 - imgs["leftbottom.png"].scaledHeight/2],
         "right.png":[width-imgs["right.png"].scaledWidth, height/2 - imgs["right.png"].scaledHeight/2],
         "bottom.png":[width/2 - imgs["bottom.png"].scaledWidth/2, height - imgs["bottom.png"].scaledHeight],
-        "righttop.png":[width-imgs["right.png"].scaledWidth - imgs["righttop.png"].scaledWidth, height/2 - imgs["right.png"].scaledHeight/2],
+        "righttop.png":[width-imgs["right.png"].scaledWidth - imgs["righttop.png"].scaledWidth, height/20],
         "mid.png":[width/2 - imgs["mid.png"].scaledWidth/2, height/2 - imgs["mid.png"].scaledHeight/2]
     };
 
@@ -107,12 +107,18 @@ function drawImages(width,height,ctx,imgs){
     const preview=document.getElementById("preview");
     preview.src=dataURL;
 
-    const downloadLink=document.getElementById("downloadLink");
-    downloadLink.href=dataURL;
-    downloadLink.style.display="inline";
-    downloadLink.textContent="下载生成的图片";
-    log("🎨 合成完成！");
+    const downloadLink = document.getElementById("downloadLink");
+    const filename = `${width}x${height} watermark.png`;
+
+    downloadLink.href = dataURL;
+    downloadLink.download = filename;   // ⭐ 关键：设置文件名
+    downloadLink.style.display = "inline";
+    downloadLink.textContent = `下载图片（${filename}）`;
+
+    log(`🎨 合成完成！文件名：${filename}`);
+
 }
 </script>
 </body>
 </html>
+
